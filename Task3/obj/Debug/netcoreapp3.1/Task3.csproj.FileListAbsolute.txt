@@ -1,0 +1,13 @@
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\Task3\bin\Debug\netcoreapp3.1\Task3.exe
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\Task3\bin\Debug\netcoreapp3.1\Task3.deps.json
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\Task3\bin\Debug\netcoreapp3.1\Task3.runtimeconfig.json
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\Task3\bin\Debug\netcoreapp3.1\Task3.runtimeconfig.dev.json
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\Task3\bin\Debug\netcoreapp3.1\Task3.dll
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\Task3\bin\Debug\netcoreapp3.1\Task3.pdb
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\Task3\obj\Debug\netcoreapp3.1\Task3.csprojAssemblyReference.cache
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\Task3\obj\Debug\netcoreapp3.1\Task3.AssemblyInfoInputs.cache
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\Task3\obj\Debug\netcoreapp3.1\Task3.AssemblyInfo.cs
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\Task3\obj\Debug\netcoreapp3.1\Task3.csproj.CoreCompileInputs.cache
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\Task3\obj\Debug\netcoreapp3.1\Task3.dll
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\Task3\obj\Debug\netcoreapp3.1\Task3.pdb
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\Task3\obj\Debug\netcoreapp3.1\Task3.genruntimeconfig.cache
