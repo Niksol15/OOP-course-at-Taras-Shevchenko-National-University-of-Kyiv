@@ -45,11 +45,11 @@ namespace Task2
         }
         public override void Study()
         {
-            this.Read();
-            this.Write();
-            this.Read();
-            this.Write();
-            this.Relax();
+            Read();
+            Write();
+            Read();
+            Write();
+            Relax();
         }
     }
     class BadStudent: Student
@@ -62,7 +62,7 @@ namespace Task2
         {
             for(int i = 0; i < 5; ++i)
             {
-                state += "Relax ";
+                Relax();
             }
         }
     }
@@ -72,6 +72,7 @@ namespace Task2
         public Group(string initial_name)
         {
             name = initial_name;
+            students = new List<Student>();
         }
         public void AddStudent(Student st)
         {
@@ -83,7 +84,7 @@ namespace Task2
             string res = name + "\nStudents:\n";
             foreach(Student student in students)
             {
-                res += student.Name + " ";
+                res += student.Name + ", ";
             }
             return res;
         }
@@ -105,7 +106,19 @@ namespace Task2
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Demonstration of the Task2:\nAdded students to Group...\n");
+            Group group = new Group("K-26");
+            Student good_studied_student = new GoodStudent("Good Student 1");
+            good_studied_student.Study();
+            Student bad_studied_student = new GoodStudent("Bad Student 1");
+            bad_studied_student.Study();
+            group.AddStudent(good_studied_student);
+            group.AddStudent(bad_studied_student);
+            group.AddStudent(new BadStudent("Bad Student 2"));
+            group.AddStudent(new GoodStudent("Good Student 2"));
+            Console.WriteLine("Output info about group:\n" + group.GetInfo() + "\n");
+            Console.WriteLine("Output full info about group:\n" + group.GetFullInfo());
+            Console.ReadKey();
         }
     }
 }
