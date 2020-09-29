@@ -41,8 +41,8 @@ namespace Task3
             Converter converter = new Converter(usd, euro);
             Console.Write("Input UAH: ");
             double uah = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine("is " + Convert.ToString(converter.ConvertUAHtoUSD(uah)) + " USD");
-            Console.WriteLine("is " + Convert.ToString(converter.ConvertUAHtoEURO(uah)) + " EURO");
+            Console.WriteLine("is " + converter.ConvertUAHtoUSD(uah) + " USD");
+            Console.WriteLine("is " + converter.ConvertUAHtoEURO(uah) + " EURO");
             Console.ReadKey();
         }
     }

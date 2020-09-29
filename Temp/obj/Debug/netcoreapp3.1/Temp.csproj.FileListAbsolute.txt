@@ -1,0 +1,12 @@
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\Temp\obj\Debug\netcoreapp3.1\Temp.AssemblyInfoInputs.cache
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\Temp\obj\Debug\netcoreapp3.1\Temp.AssemblyInfo.cs
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\Temp\obj\Debug\netcoreapp3.1\Temp.csproj.CoreCompileInputs.cache
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\Temp\bin\Debug\netcoreapp3.1\Temp.exe
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\Temp\bin\Debug\netcoreapp3.1\Temp.deps.json
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\Temp\bin\Debug\netcoreapp3.1\Temp.runtimeconfig.json
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\Temp\bin\Debug\netcoreapp3.1\Temp.runtimeconfig.dev.json
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\Temp\bin\Debug\netcoreapp3.1\Temp.dll
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\Temp\bin\Debug\netcoreapp3.1\Temp.pdb
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\Temp\obj\Debug\netcoreapp3.1\Temp.dll
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\Temp\obj\Debug\netcoreapp3.1\Temp.pdb
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\Temp\obj\Debug\netcoreapp3.1\Temp.genruntimeconfig.cache
