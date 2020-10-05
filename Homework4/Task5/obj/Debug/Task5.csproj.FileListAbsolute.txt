@@ -1,0 +1,10 @@
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\Homework4\Task5\bin\Debug\Task5.exe.config
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\Homework4\Task5\bin\Debug\Task5.exe
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\Homework4\Task5\bin\Debug\Task5.pdb
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\Homework4\Task5\obj\Debug\Task5.csprojAssemblyReference.cache
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\Homework4\Task5\obj\Debug\Task5.OutputRhombus.resources
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\Homework4\Task5\obj\Debug\Task5.Properties.Resources.resources
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\Homework4\Task5\obj\Debug\Task5.csproj.GenerateResource.cache
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\Homework4\Task5\obj\Debug\Task5.csproj.CoreCompileInputs.cache
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\Homework4\Task5\obj\Debug\Task5.exe
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\Homework4\Task5\obj\Debug\Task5.pdb
