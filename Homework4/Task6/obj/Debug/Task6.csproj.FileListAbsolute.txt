@@ -1,0 +1,10 @@
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\Homework4\Task6\bin\Debug\Task6.exe.config
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\Homework4\Task6\bin\Debug\Task6.exe
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\Homework4\Task6\bin\Debug\Task6.pdb
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\Homework4\Task6\obj\Debug\Task6.csprojAssemblyReference.cache
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\Homework4\Task6\obj\Debug\Task6.Form1.resources
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\Homework4\Task6\obj\Debug\Task6.Properties.Resources.resources
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\Homework4\Task6\obj\Debug\Task6.csproj.GenerateResource.cache
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\Homework4\Task6\obj\Debug\Task6.csproj.CoreCompileInputs.cache
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\Homework4\Task6\obj\Debug\Task6.exe
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\Homework4\Task6\obj\Debug\Task6.pdb
