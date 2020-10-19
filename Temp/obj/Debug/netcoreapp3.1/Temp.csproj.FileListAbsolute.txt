@@ -10,3 +10,4 @@ D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\Temp\b
 D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\Temp\obj\Debug\netcoreapp3.1\Temp.dll
 D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\Temp\obj\Debug\netcoreapp3.1\Temp.pdb
 D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\Temp\obj\Debug\netcoreapp3.1\Temp.genruntimeconfig.cache
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\Temp\obj\Debug\netcoreapp3.1\Temp.csprojAssemblyReference.cache

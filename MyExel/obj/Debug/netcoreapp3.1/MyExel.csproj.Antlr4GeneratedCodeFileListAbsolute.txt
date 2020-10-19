@@ -1,0 +1,6 @@
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\MyExel\obj\Debug\netcoreapp3.1\MyExelLexer.cs
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\MyExel\obj\Debug\netcoreapp3.1\MyExelParser.cs
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\MyExel\obj\Debug\netcoreapp3.1\MyExelListener.cs
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\MyExel\obj\Debug\netcoreapp3.1\MyExelBaseListener.cs
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\MyExel\obj\Debug\netcoreapp3.1\MyExelVisitor.cs
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\MyExel\obj\Debug\netcoreapp3.1\MyExelBaseVisitor.cs
