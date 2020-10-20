@@ -70,13 +70,14 @@ namespace MyExel
         }
         public void ProccesExpression(string expression)
         {
+            bool isRecursion = false;
             _expression = expression;
             _parent.Tag = _expression;
             try
             {
                 string res = Calculator.Evaluate(expression);
                 List<Cell> Identifiers = CellManager.ListIdentifiersToListCells(Calculator.GetParsedIdentifiers());
-
+                updateDependency(CellManager.ListIdentifiersToListCells(Calculator.GetParsedIdentifiers()));
                 if (findCircle(Identifiers) == false)
                 {
                     _value = res;
@@ -89,12 +90,18 @@ namespace MyExel
                         _parent.Value = (stringToBool(_value)).ToString();
                     }
                     cellsIDependOn = Identifiers;
+                    _expression = expression;
+                    _parent.Tag = _expression;
                 }
                 else
                 {
                     MessageBox.Show("Ой, а вас рекурсія, будьте уважніші!");
-                    _value = "null";
-                    _parent.Value = "null";
+                    _value = "";
+                    _parent.Value = "";
+                    _expression = "";
+                    _parent.Tag = "";
+                    cellsIDependOn.Clear();
+                    isRecursion = true;
                 }
             }
             catch (NullCellException)
@@ -111,8 +118,10 @@ namespace MyExel
             }
             finally
             {
-                updateDependency(CellManager.ListIdentifiersToListCells(Calculator.GetParsedIdentifiers()));
-                updateValue();              
+                if(isRecursion == false)
+                {
+                    updateValue();
+                }                           
             }
         }
 
@@ -158,6 +167,10 @@ namespace MyExel
             {
                 cell.cellsDependOnMe.Add(this);
             }
+        }
+        public bool HasDependence()
+        {
+            return Convert.ToBoolean(cellsDependOnMe.Count);
         }
     }
 }

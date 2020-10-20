@@ -396,6 +396,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Name = "MyExel";
             this.Text = "MyExel";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MyExel_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DGVTable)).EndInit();
             this.menuStrip1.ResumeLayout(false);
