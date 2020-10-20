@@ -13,18 +13,16 @@ namespace MyExel
         {
             _parent = parent;
             _name = cellToName(parent);
-            _value = "";
-            _expression = "";
         }
         private string cellToName(DataGridViewCell cell)
         {
             return "R" + (cell.RowIndex + 1) + "C" + (cell.ColumnIndex + 1);
         }
-        private List<Cell> cellsIDependOn;
-        private List<Cell> cellsDependOnMe;
+        private List<Cell> cellsIDependOn = new List<Cell>();
+        private HashSet<Cell> cellsDependOnMe = new HashSet<Cell>();
         private string _name;
-        private string _value;
-        private string _expression;
+        private string _value = "";
+        private string _expression = "";
         private DataGridViewCell _parent;
         public string Name
         {
@@ -70,7 +68,6 @@ namespace MyExel
         {
             get { return _parent;  }
         }
-
         public void ProccesExpression(string expression)
         {
             _expression = expression;
@@ -78,8 +75,9 @@ namespace MyExel
             try
             {
                 string res = Calculator.Evaluate(expression);
-                List<string> Identifiers = Calculator.GetParsedIdentifiers();
-                if (isRecursion(Identifiers) == false)
+                List<Cell> Identifiers = CellManager.ListIdentifiersToListCells(Calculator.GetParsedIdentifiers());
+
+                if (findCircle(Identifiers) == false)
                 {
                     _value = res;
                     if (_value == "null")
@@ -90,6 +88,13 @@ namespace MyExel
                     {
                         _parent.Value = (stringToBool(_value)).ToString();
                     }
+                    cellsIDependOn = Identifiers;
+                }
+                else
+                {
+                    MessageBox.Show("Ой, а вас рекурсія, будьте уважніші!");
+                    _value = "null";
+                    _parent.Value = "null";
                 }
             }
             catch (NullCellException)
@@ -104,12 +109,55 @@ namespace MyExel
                 _value = "null";
                 _parent.Value = "null";
             }
-            
+            finally
+            {
+                updateDependency(CellManager.ListIdentifiersToListCells(Calculator.GetParsedIdentifiers()));
+                updateValue();              
+            }
         }
 
-        private bool isRecursion(List<string> identifiers)
+        private void updateValue()
         {
+            foreach(Cell cell in cellsDependOnMe)
+            {
+                cell.ProccesExpression(cell._expression);
+            }
+        }
+        private bool findCircle(List<Cell> cells)
+        {
+            foreach(Cell cell in cells)
+            {
+                if (cell.findCircle(this))
+                {
+                    return true;
+                }
+            }
             return false;
+        }
+        private bool findCircle(Cell needed_cell)
+        {
+            if (this == needed_cell)
+            {
+                return true;
+            }
+            else
+            {
+                foreach (Cell cell in cellsIDependOn)
+                {
+                    if(cell.findCircle(needed_cell))
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        private void updateDependency(List<Cell> cells)
+        {
+            foreach (Cell cell in cells)
+            {
+                cell.cellsDependOnMe.Add(this);
+            }
         }
     }
 }

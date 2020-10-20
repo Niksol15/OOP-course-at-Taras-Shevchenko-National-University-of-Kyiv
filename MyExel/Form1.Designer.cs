@@ -88,6 +88,7 @@
             this.AddRowBotton.TabIndex = 2;
             this.AddRowBotton.Text = "Add row";
             this.AddRowBotton.UseVisualStyleBackColor = true;
+            this.AddRowBotton.Click += new System.EventHandler(this.AddRowBotton_Click);
             // 
             // DeleteRowBotton
             // 
@@ -107,6 +108,7 @@
             this.AddColumnBotton.TabIndex = 4;
             this.AddColumnBotton.Text = "Add column";
             this.AddColumnBotton.UseVisualStyleBackColor = true;
+            this.AddColumnBotton.Click += new System.EventHandler(this.AddColumnBotton_Click);
             // 
             // DeleteColumnBotton
             // 

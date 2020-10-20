@@ -38,6 +38,15 @@ namespace MyExel
         {
             return _identifierToCell[identifier].Value;
         }
+        public static List<Cell> ListIdentifiersToListCells(List<string> strings)
+        {
+            List<Cell> cells = new List<Cell>();
+            foreach(string str in strings)
+            {
+                cells.Add(_identifierToCell[str]);
+            }
+            return cells;
+        }
         public static void ProccesExpression(DataGridViewCell dgvCell, string expression)
         {
             Cell cell = DGVCellToCell(dgvCell);

@@ -98,5 +98,24 @@ namespace MyExel
         {
             InputBox.Text = DGVTable.CurrentCell.Tag.ToString();
         }
+
+        private void AddRowBotton_Click(object sender, EventArgs e)
+        {
+            DGVTable.Rows.Add(new DataGridViewRow());
+            FillHeadrs();
+            foreach (DataGridViewCell cell in DGVTable.Rows[DGVTable.RowCount - 1].Cells)
+            {
+                CellManager.AddCell(cell);
+            }
+        }
+
+        private void AddColumnBotton_Click(object sender, EventArgs e)
+        {
+            DGVTable.Columns.Add(new DataGridViewColumn(DGVTable.Rows[0].Cells[0]));
+            foreach(DataGridViewRow row in DGVTable.Rows)
+            {
+                CellManager.AddCell(row.Cells[DGVTable.ColumnCount - 1]);
+            }           
+        }
     }
 }
