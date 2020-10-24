@@ -15,7 +15,15 @@ namespace MyExel
             _dgvCellToCell.Add(dgvCell, cell);
             _identifierToCell.Add(cell.Name, cell);
         }
-
+        public static void DeleteCell(DataGridViewCell dgvCell)
+        {
+            if(dgvCell != null && _dgvCellToCell.ContainsKey(dgvCell))
+            {
+                Cell cellToDelete = _dgvCellToCell[dgvCell];
+                _dgvCellToCell.Remove(dgvCell);
+                _identifierToCell.Remove(cellToDelete.Name);
+            }
+        }
         public static Cell DGVCellToCell(DataGridViewCell dgvCell)
         {
             Cell cell;
@@ -31,12 +39,22 @@ namespace MyExel
         
         public static bool IdentifierToBoolValue(string identifier)
         {
-            return _identifierToCell[identifier].BoolValue;
+            Cell cell;
+            if (_identifierToCell.TryGetValue(identifier, out cell))
+            {
+                return cell.BoolValue;
+            }
+            return false;
         }
 
         public static string IdentifierToStringValue(string identifier)
         {
-            return _identifierToCell[identifier].Value;
+            Cell cell;
+            if (_identifierToCell.TryGetValue(identifier, out cell))
+            {
+                return cell.Value;
+            }
+            return "null";
         }
         public static List<Cell> ListIdentifiersToListCells(List<string> strings)
         {

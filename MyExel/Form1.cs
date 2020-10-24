@@ -20,13 +20,13 @@ namespace MyExel
             InitializeCells();
 
         }
-        private const int MAX_COLUMN = 10;
-        private const int MAX_ROW = 12;
+        private const int INITIAL_COUNT_COLUMN = 10;
+        private const int INITIAL_COUNT_ROW = 12;
         private const int ROW_HEADERS_WIDTH = 80;
         private void InitializeDGV()
         {
-            DGVTable.ColumnCount = MAX_COLUMN;
-            DGVTable.RowCount = MAX_ROW;
+            DGVTable.ColumnCount = INITIAL_COUNT_COLUMN;
+            DGVTable.RowCount = INITIAL_COUNT_ROW;
             FillHeadrs();
             DGVTable.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             DGVTable.RowHeadersWidth = ROW_HEADERS_WIDTH;
@@ -69,9 +69,9 @@ namespace MyExel
 
         }
 
-        private void DeleteRowBotton_Click(object sender, EventArgs e)
+        private void DeleteRow(object sender, EventArgs e)
         {
-            if(DGVTable.Rows.Count == 1)
+            if (DGVTable.Rows.Count == 1)
             {
                 MessageBox.Show("Не можно выдаляти останній рядок");
             }
@@ -83,9 +83,14 @@ namespace MyExel
                 }
                 else
                 {
+                    deleteCellsAtLastRow();
                     DGVTable.Rows.RemoveAt(DGVTable.RowCount - 1);
                 }
             }
+        }
+        private void DeleteRowBotton_Click(object sender, EventArgs e)
+        {
+            DeleteRow(sender, e);
         }
 
         private bool isLastRowHasDependence()
@@ -112,8 +117,7 @@ namespace MyExel
         {
 
         }
-
-        private void DeleteColumnBotton_Click(object sender, EventArgs e)
+        private void DeleteColumn(object sender, EventArgs e)
         {
             if (DGVTable.Columns.Count == 1)
             {
@@ -127,7 +131,31 @@ namespace MyExel
                 }
                 else
                 {
+                    deleteCellsAtLastColumn();
                     DGVTable.Columns.RemoveAt(DGVTable.ColumnCount - 1);
+                }
+            }
+        }
+        private void DeleteColumnBotton_Click(object sender, EventArgs e)
+        {
+            DeleteColumn(sender, e);
+        }
+        private void deleteCellsAtLastRow()
+        {
+            foreach(DataGridViewCell cell in DGVTable.Rows[DGVTable.RowCount - 1].Cells)
+            {
+                CellManager.DeleteCell(cell);
+            }
+        }
+
+        private void deleteCellsAtLastColumn()
+        {
+            foreach (DataGridViewRow row in DGVTable.Rows)
+            {
+                DataGridViewCell cell = row.Cells[DGVTable.ColumnCount - 1];
+                if (cell != null)
+                {
+                    CellManager.DeleteCell(cell);
                 }
             }
         }
@@ -136,7 +164,7 @@ namespace MyExel
             foreach (DataGridViewRow row in DGVTable.Rows)
             {
                 DataGridViewCell cell = row.Cells[DGVTable.ColumnCount - 1];
-                if (cell == null)
+                if (cell == null || CellManager.DGVCellToCell(cell) == null)
                 {
                     return false;
                 }
@@ -165,11 +193,9 @@ namespace MyExel
         {
             InputBox.Text = DGVTable.CurrentCell.Tag.ToString();
         }
-
-        private void AddRowBotton_Click(object sender, EventArgs e)
+        private void AddRow(object sender, EventArgs e)
         {
-
-            DataGridViewRow addedRow = new DataGridViewRow();            
+            DataGridViewRow addedRow = new DataGridViewRow();
             foreach (DataGridViewCell cell in addedRow.Cells)
             {
                 cell.Value = "";
@@ -179,15 +205,22 @@ namespace MyExel
             DGVTable.Rows.Add(addedRow);
             FillHeadrs();
         }
-
-        private void AddColumnBotton_Click(object sender, EventArgs e)
+        private void AddRowBotton_Click(object sender, EventArgs e)
+        {
+            AddRow(sender, e);
+        }
+        private void AddColumn(object sender, EventArgs e)
         {
             DGVTable.Columns.Add(new DataGridViewColumn(DGVTable.Rows[0].Cells[0]));
             FillHeadrs();
-            foreach(DataGridViewRow row in DGVTable.Rows)
+            foreach (DataGridViewRow row in DGVTable.Rows)
             {
                 CellManager.AddCell(row.Cells[DGVTable.ColumnCount - 1]);
-            }           
+            }
+        }
+        private void AddColumnBotton_Click(object sender, EventArgs e)
+        {
+            AddColumn(sender, e);        
         }
 
         private void MyExel_FormClosing(object sender, FormClosingEventArgs e)
@@ -202,6 +235,44 @@ namespace MyExel
             {
                 e.Cancel = true;
             }
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            
+            //e.ClickedItem == menuStrip1.Items.
+        }
+
+        private void aboutMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Тут має бути інформація про автора, ну якщо котороко то автор:\n Нікіта Солонко з К-26");
+        }
+
+        private void addColumnMenuItem_Click(object sender, EventArgs e)
+        {
+            AddColumn(sender, e);
+        }
+
+        private void addRowMenuItem_Click(object sender, EventArgs e)
+        {
+            AddRow(sender, e);
+        }
+
+        private void deleteColumnMenuItem_Click(object sender, EventArgs e)
+        {
+            DeleteColumn(sender, e);
+        }
+
+        private void deleteRowMenuItem_Click(object sender, EventArgs e)
+        {
+            DeleteRow(sender, e);
+        }
+        // Open and Save
+        private string filePath = "C:/";
+
+        private void SaveDataGridView()
+        {
+            DGVTable.EndEdit();
         }
     }
 }

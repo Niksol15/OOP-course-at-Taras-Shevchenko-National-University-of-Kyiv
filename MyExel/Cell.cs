@@ -7,7 +7,7 @@ using System.Windows.Forms;
 namespace MyExel
 {
     class NullCellException : Exception { }
-    class Cell: DataGridViewTextBoxCell
+    class Cell
     {
         public Cell(DataGridViewCell parent)
         {
@@ -71,60 +71,60 @@ namespace MyExel
         public void ProccesExpression(string expression)
         {
             bool isRecursion = false;
-            _expression = expression;
-            _parent.Tag = _expression;
+            List<Cell> parsedCells = new List<Cell>();
             try
             {
                 string res = Calculator.Evaluate(expression);
-                List<Cell> Identifiers = CellManager.ListIdentifiersToListCells(Calculator.GetParsedIdentifiers());
-                updateDependency(CellManager.ListIdentifiersToListCells(Calculator.GetParsedIdentifiers()));
-                if (findCircle(Identifiers) == false)
+                parsedCells = CellManager.ListIdentifiersToListCells(Calculator.GetParsedIdentifiers());
+                if (findCycle(parsedCells) == false)
                 {
                     _value = res;
-                    if (_value == "null")
-                    {
-                        _parent.Value = "null";
-                    }
-                    else
-                    {
-                        _parent.Value = (stringToBool(_value)).ToString();
-                    }
-                    cellsIDependOn = Identifiers;
-                    _expression = expression;
-                    _parent.Tag = _expression;
+                    _parent.Value = (stringToBool(_value)).ToString();
                 }
                 else
                 {
                     MessageBox.Show("Ой, а вас рекурсія, будьте уважніші!");
-                    _value = "";
-                    _parent.Value = "";
-                    _expression = "";
-                    _parent.Tag = "";
-                    cellsIDependOn.Clear();
+                    //clearCell();
                     isRecursion = true;
                 }
             }
             catch (NullCellException)
             {
                 MessageBox.Show("Ой, а ви використовуете комірочку зі значенням null, будьте уважніші!");
-                _value = "null";
-                _parent.Value = "null";
+                setNullValue();
             }
             catch (Exception)
             {
                 MessageBox.Show("Ой, а у вас синтасична помилочка, будьте уважніші!");
-                _value = "null";
-                _parent.Value = "null";
+                setNullValue();
             }
             finally
             {
                 if(isRecursion == false)
                 {
+                    _expression = expression;
+                    _parent.Tag = _expression;
+                    updateDependency(parsedCells);
+                    cellsIDependOn = parsedCells;
                     updateValue();
                 }                           
             }
         }
 
+        private void setNullValue() 
+        {
+            _value = "null";
+            _parent.Value = "null";
+        }
+
+        private void clearCell()
+        {
+            _value = "";
+            _parent.Value = "";
+            _expression = "";
+            _parent.Tag = "";
+            cellsIDependOn.Clear();
+        }
         private void updateValue()
         {
             foreach(Cell cell in cellsDependOnMe)
@@ -132,18 +132,18 @@ namespace MyExel
                 cell.ProccesExpression(cell._expression);
             }
         }
-        private bool findCircle(List<Cell> cells)
+        private bool findCycle(List<Cell> cells)
         {
             foreach(Cell cell in cells)
             {
-                if (cell.findCircle(this))
+                if (cell.findCycle(this))
                 {
                     return true;
                 }
             }
             return false;
         }
-        private bool findCircle(Cell needed_cell)
+        private bool findCycle(Cell needed_cell)
         {
             if (this == needed_cell)
             {
@@ -153,7 +153,7 @@ namespace MyExel
             {
                 foreach (Cell cell in cellsIDependOn)
                 {
-                    if(cell.findCircle(needed_cell))
+                    if(cell.findCycle(needed_cell))
                     {
                         return true;
                     }
@@ -163,6 +163,10 @@ namespace MyExel
         }
         private void updateDependency(List<Cell> cells)
         {
+            foreach(Cell cell in cellsIDependOn)
+            {
+                cell.cellsDependOnMe.Remove(this);
+            }
             foreach (Cell cell in cells)
             {
                 cell.cellsDependOnMe.Add(this);
@@ -170,7 +174,7 @@ namespace MyExel
         }
         public bool HasDependence()
         {
-            return Convert.ToBoolean(cellsDependOnMe.Count);
+            return cellsDependOnMe.Count != 0;
         }
     }
 }
