@@ -18,16 +18,15 @@ namespace MyExel
             InitializeComponent();
             InitializeDGV();
             InitializeCells();
-
         }
         private const int INITIAL_COUNT_COLUMN = 10;
-        private const int INITIAL_COUNT_ROW = 12;
+        private const int INITIAL_COUNT_ROW = 13;
         private const int ROW_HEADERS_WIDTH = 80;
         private void InitializeDGV()
         {
             DGVTable.ColumnCount = INITIAL_COUNT_COLUMN;
             DGVTable.RowCount = INITIAL_COUNT_ROW;
-            FillHeadrs();
+            FillHeaders();
             DGVTable.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             DGVTable.RowHeadersWidth = ROW_HEADERS_WIDTH;
             DGVTable.ReadOnly = true;
@@ -47,7 +46,7 @@ namespace MyExel
             }
         }
 
-        private void FillHeadrs()
+        private void FillHeaders()
         {
             foreach(DataGridViewColumn col in DGVTable.Columns)
             {
@@ -203,7 +202,7 @@ namespace MyExel
                 CellManager.AddCell(cell);
             }
             DGVTable.Rows.Add(addedRow);
-            FillHeadrs();
+            FillHeaders();
         }
         private void AddRowBotton_Click(object sender, EventArgs e)
         {
@@ -212,7 +211,7 @@ namespace MyExel
         private void AddColumn(object sender, EventArgs e)
         {
             DGVTable.Columns.Add(new DataGridViewColumn(DGVTable.Rows[0].Cells[0]));
-            FillHeadrs();
+            FillHeaders();
             foreach (DataGridViewRow row in DGVTable.Rows)
             {
                 CellManager.AddCell(row.Cells[DGVTable.ColumnCount - 1]);
@@ -225,10 +224,9 @@ namespace MyExel
 
         private void MyExel_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DialogResult result = MessageBox.Show("А ви точно-точно хочете вийти?", "Точно?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            DialogResult result = MessageBox.Show("А ви точно-точно хочете вийти?", "Попередження", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if(result == DialogResult.Yes)
             {
-                //e.Cancel = true;
                 return;
             }
             else
@@ -245,7 +243,7 @@ namespace MyExel
 
         private void aboutMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Тут має бути інформація про автора, ну якщо котороко то автор:\n Нікіта Солонко з К-26");
+            MessageBox.Show("Тут має бути інформація про автора, ну якщо котороко то автор:\nНікіта Солонко з К-26");
         }
 
         private void addColumnMenuItem_Click(object sender, EventArgs e)
@@ -267,12 +265,46 @@ namespace MyExel
         {
             DeleteRow(sender, e);
         }
+        private void exitMenuItem_Click(object sender, EventArgs e)
+        {
+           Close();
+        }
         // Open and Save
-        private string filePath = "C:/";
-
-        private void SaveDataGridView()
+        private string filePath = "";
+        private void SaveDataGridView(string file_path)
         {
             DGVTable.EndEdit();
+            DGVSaveLoader.SaveDGV(DGVTable, file_path);
+        }
+
+        private void saveAsMenuItem_Click(object sender, EventArgs e)
+        {
+            if(saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                filePath = saveFileDialog.FileName;
+                DGVSaveLoader.SaveDGV(DGVTable, filePath);
+            }
+        }
+
+        private void saveMenuItem_Click(object sender, EventArgs e)
+        {
+            if(filePath == "")
+            {
+                saveAsMenuItem_Click(sender, e);
+            }
+            else
+            {
+                DGVSaveLoader.SaveDGV(DGVTable, filePath);
+            }
+        }
+
+        private void OpenMenuItem_Click(object sender, EventArgs e)
+        {
+            if(openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                DGVSaveLoader.OpenDVG(DGVTable, openFileDialog.FileName);
+            }
+            FillHeaders();
         }
     }
 }

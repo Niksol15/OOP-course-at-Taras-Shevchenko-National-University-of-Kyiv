@@ -3,7 +3,7 @@ using System.Net.Cache;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices.ComTypes;
 using Temp;
-
+using System.IO;
 
 namespace Temp
 {
@@ -12,7 +12,9 @@ namespace Temp
     {
         static void Main(string[] args)
         {
-            Console.ReadLine();
+            StreamWriter sw = new StreamWriter(@"D:\test.txt");
+            sw.Write("Suka");
+            sw.Close();
         }
     }
 }

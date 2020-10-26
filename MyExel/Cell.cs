@@ -1,18 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing.Printing;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
 namespace MyExel
 {
     class NullCellException : Exception { }
-    class Cell
+    class Cell: DataGridViewCell
     {
-        public Cell(DataGridViewCell parent)
+        public Cell(DataGridViewCell parent, bool proccessNow = false)
         {
             _parent = parent;
             _name = cellToName(parent);
+            _expression = parent.Tag.ToString();
+            if (parent.Tag.ToString() != "" && proccessNow)
+            {
+                ProccesExpression(_expression);
+            }
+            else 
+            {
+                _value = "";
+            }
         }
         private string cellToName(DataGridViewCell cell)
         {
@@ -21,8 +31,8 @@ namespace MyExel
         private List<Cell> cellsIDependOn = new List<Cell>();
         private HashSet<Cell> cellsDependOnMe = new HashSet<Cell>();
         private string _name;
-        private string _value = "";
-        private string _expression = "";
+        private string _value;
+        private string _expression;
         private DataGridViewCell _parent;
         public string Name
         {
@@ -127,10 +137,17 @@ namespace MyExel
         }
         private void updateValue()
         {
+            List<Cell> temp = cellsDependOnMe.ToList<Cell>();
+            for(int i = 0; i < temp.Count; ++i)
+            {
+                temp[i].ProccesExpression(temp[i].Expression);
+            }
+            /*
             foreach(Cell cell in cellsDependOnMe)
             {
-                cell.ProccesExpression(cell._expression);
+                cell.ProccesExpression(cell.Expression);
             }
+            */
         }
         private bool findCycle(List<Cell> cells)
         {
@@ -163,9 +180,16 @@ namespace MyExel
         }
         private void updateDependency(List<Cell> cells)
         {
+            if (cells == cellsIDependOn)
+            {
+                return;
+            }
             foreach(Cell cell in cellsIDependOn)
             {
-                cell.cellsDependOnMe.Remove(this);
+                //if (!cells.Contains(cell))
+                //{
+                    cell.cellsDependOnMe.Remove(this);
+                //}               
             }
             foreach (Cell cell in cells)
             {

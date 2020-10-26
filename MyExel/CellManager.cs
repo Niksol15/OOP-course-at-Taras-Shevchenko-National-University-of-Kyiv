@@ -73,5 +73,29 @@ namespace MyExel
                 cell.ProccesExpression(expression);
             }        
         }
+
+        public static void RefreshDGV(DataGridView dgv)
+        {
+            _dgvCellToCell.Clear();
+            _identifierToCell.Clear();
+            foreach(DataGridViewRow row in dgv.Rows)
+            {
+                foreach(DataGridViewCell dgvCell in row.Cells)
+                {
+                    dgvCell.Value = "";
+                    AddCell(dgvCell);
+                }
+            }
+            foreach (DataGridViewRow row in dgv.Rows)
+            {
+                foreach (DataGridViewCell dgvCell in row.Cells)
+                {
+                    if(dgvCell.Tag.ToString() != "")
+                    {
+                        ProccesExpression(dgvCell, dgvCell.Tag.ToString());
+                    }
+                }
+            }
+        }
     }
 }

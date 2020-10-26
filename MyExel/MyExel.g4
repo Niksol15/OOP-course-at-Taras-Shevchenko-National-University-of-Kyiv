@@ -22,8 +22,8 @@ expression :
 * Lexer Rules
 */
 
-NUMBER: INT('.' INT)?;
-IDENTIFIER: ['R']+[1-9]+['C']+[1-9]+;
+NUMBER: INT(COMMA INT)?;
+IDENTIFIER: ['R']+INT+['C']+INT+;
 
 INT :('0'..'9')+;
 
