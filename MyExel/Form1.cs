@@ -18,6 +18,8 @@ namespace MyExel
             InitializeComponent();
             InitializeDGV();
             InitializeCells();
+            saveFileDialog.DefaultExt = "txt";
+            openFileDialog.Filter = "txt files (*.txt)|*.txt";
         }
         private const int INITIAL_COUNT_COLUMN = 10;
         private const int INITIAL_COUNT_ROW = 13;

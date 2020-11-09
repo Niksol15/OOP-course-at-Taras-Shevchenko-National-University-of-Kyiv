@@ -28,10 +28,18 @@ namespace MyExel
             return dataTable;
         }
 
+        public static bool isTxt(string file_path)
+        {
+            return file_path != null && file_path.Split('.')[1] == "txt";
+        }
         public static bool SaveDGV(DataGridView dgv, string file_path)
         {
             try
             {
+                if (!isTxt(file_path))
+                {
+                    throw new Exception();
+                }
                 StreamWriter tw = new StreamWriter(file_path, false, Encoding.Default);
                 tw.WriteLine(dgv.RowCount);
                 tw.WriteLine(dgv.ColumnCount);
@@ -65,6 +73,10 @@ namespace MyExel
         {
             try
             {
+                if (!isTxt(file_path))
+                {
+                    throw new Exception();
+                }
                 StreamReader tr = new StreamReader(file_path);
                 int rowCounter = Convert.ToInt32(tr.ReadLine());
                 int columnCounter = Convert.ToInt32(tr.ReadLine());
