@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace Decorator.Examples
 {
     class MainApp
@@ -10,6 +12,15 @@ namespace Decorator.Examples
             ConcreteDecoratorA d1 = new ConcreteDecoratorA();
             ConcreteDecoratorB d2 = new ConcreteDecoratorB();
 
+            ChristmasTree ct = new ChristmasTree();
+
+            ToyChristmasTreeDecorator td = new ToyChristmasTreeDecorator();
+            GarlandChristmasTreeDecorator gd = new GarlandChristmasTreeDecorator();
+
+            td.SetTree(ct);
+            gd.SetTree(ct);
+            td.DecotateChristmasTree();
+            gd.DecotateChristmasTree();
             // Link decorators
             d1.SetComponent(c);
             d2.SetComponent(d1);
@@ -20,6 +31,72 @@ namespace Decorator.Examples
             Console.Read();
         }
     }
+
+    abstract class Toy { }
+
+
+    class ChristmasToy : Toy
+    {
+        public void info()
+        {
+            Console.WriteLine("I`m a cool christmas toy");
+        }
+    }
+
+    abstract class Tree { }
+    class ChristmasTree : Tree 
+    {
+        private List<Toy> _toys;
+
+        private bool _isShining;
+
+        public void Shine()
+        {
+            if (_isShining)
+            {
+                Console.WriteLine("I`m shining");
+            }
+        }
+
+        public void SwitchGarland()
+        {
+            _isShining = !_isShining; 
+        }
+
+        public void AddToy(Toy toy)
+        {
+            _toys.Add(toy);
+        }
+    }
+
+    abstract class ChristmasTreeDecorator
+    {
+        protected ChristmasTree _tree;
+
+        public void SetTree(ChristmasTree tree)
+        {
+            _tree = tree;
+        }
+
+        public abstract void DecotateChristmasTree();
+    }
+
+    class ToyChristmasTreeDecorator: ChristmasTreeDecorator
+    {
+        public override void DecotateChristmasTree()
+        {
+            _tree.AddToy(new ChristmasToy());
+        }
+    }
+
+    class GarlandChristmasTreeDecorator : ChristmasTreeDecorator
+    {
+        public override void DecotateChristmasTree()
+        {
+            _tree.SwitchGarland();
+        }
+    }
+
     // "Component"
     abstract class Component
     {
