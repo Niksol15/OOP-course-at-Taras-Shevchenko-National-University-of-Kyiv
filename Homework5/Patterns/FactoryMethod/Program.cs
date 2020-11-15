@@ -17,6 +17,7 @@ namespace FactoryMethodExample
                 case 1: return new ConcreteProductA();
                 //повертає об'єкт B, якщо type==2  
                 case 2: return new ConcreteProductB();
+                case 3: return new ConcreteProductC();
                 default: throw new ArgumentException("Invalid type.", "type");
             }
         }
@@ -29,12 +30,14 @@ namespace FactoryMethodExample
 
     public class ConcreteProductB : Product { }
 
+    public class ConcreteProductC : Product { }
+
     class MainApp
     {
         static void Main()
         {       //створюємо творця
             Creator creator = new ConcreteCreator();
-            for (int i = 1; i <= 2; i++)
+            for (int i = 0; i < 3; i++)
             {
                 //створюємо спочатку продукт з типом 1, потім з типом 2
                 var product = creator.FactoryMethod(i);

@@ -55,6 +55,14 @@ namespace Facade.Examples
             Console.WriteLine(" SubSystemFour Method");
         }
     }
+
+    class SubSystemFive
+    {
+        public void MethodFive()
+        {
+            Console.WriteLine(" SubsystemFive Method");
+        }
+    }
     // "Facade" 
     class Facade
     {
@@ -62,6 +70,7 @@ namespace Facade.Examples
         SubSystemTwo two;
         SubSystemThree three;
         SubSystemFour four;
+        SubSystemFive five;
 
         public Facade()
         {
@@ -69,6 +78,7 @@ namespace Facade.Examples
             two = new SubSystemTwo();
             three = new SubSystemThree();
             four = new SubSystemFour();
+            five = new SubSystemFive();
         }
 
         public void MethodA()
@@ -84,6 +94,13 @@ namespace Facade.Examples
             Console.WriteLine("\nMethodB() ---- ");
             two.MethodTwo();
             three.MethodThree();
+        }
+
+        public void MethodC()
+        {
+            Console.WriteLine("\nMethodC() ---- ");
+            one.MethodOne();
+            five.MethodFive();
         }
     }
 }
