@@ -1,0 +1,15 @@
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\XMLToHTML\bin\Debug\netcoreapp3.1\XMLToHTML.exe
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\XMLToHTML\bin\Debug\netcoreapp3.1\XMLToHTML.deps.json
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\XMLToHTML\bin\Debug\netcoreapp3.1\XMLToHTML.runtimeconfig.json
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\XMLToHTML\bin\Debug\netcoreapp3.1\XMLToHTML.runtimeconfig.dev.json
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\XMLToHTML\bin\Debug\netcoreapp3.1\XMLToHTML.dll
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\XMLToHTML\bin\Debug\netcoreapp3.1\XMLToHTML.pdb
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\XMLToHTML\obj\Debug\netcoreapp3.1\XMLToHTML.csprojAssemblyReference.cache
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\XMLToHTML\obj\Debug\netcoreapp3.1\XMLToHTML.Form1.resources
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\XMLToHTML\obj\Debug\netcoreapp3.1\XMLToHTML.csproj.GenerateResource.cache
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\XMLToHTML\obj\Debug\netcoreapp3.1\XMLToHTML.AssemblyInfoInputs.cache
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\XMLToHTML\obj\Debug\netcoreapp3.1\XMLToHTML.AssemblyInfo.cs
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\XMLToHTML\obj\Debug\netcoreapp3.1\XMLToHTML.csproj.CoreCompileInputs.cache
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\XMLToHTML\obj\Debug\netcoreapp3.1\XMLToHTML.dll
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\XMLToHTML\obj\Debug\netcoreapp3.1\XMLToHTML.pdb
+D:\Project\OOP\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\XMLToHTML\obj\Debug\netcoreapp3.1\XMLToHTML.genruntimeconfig.cache

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Tanks>
+  <Tank
+    Name = "T-34"
+    Country = "USSR"
+    YearOfIssue = "1939"
+    MainCaliber = "76mm"
+    Armor = "45mm"
+    Weight = "30ton">
+  </Tank>
+  <Tank
+    Name = "Tiger"
+    Country = "Third Reich"
+    YearOfIssue = "1942"
+    MainCaliber = "88mm"
+    Armor = "100mm"
+    Weight = "57ton">
+  </Tank>
+  <Tank
+    Name = "M4A1 Sherman"
+    Country = "USA"
+    YearOfIssue = "1942"
+    MainCaliber = "76mm"
+    Armor = "45mm"
+    Weight = "30ton">
+   </Tank>
+</Tanks>
