@@ -22,30 +22,12 @@ namespace XMLToHTML
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            if(Name.Length != 0)
-            {
-                sb.Append("Name: " +  Name + "\n");
-            }
-            if (Country.Length != 0)
-            {
-                sb.Append("Coutnry: " + Country + "\n");
-            }
-            if (YearOfIssue.Length != 0)
-            {
-                sb.Append("YearOfIssue: " + YearOfIssue + "\n");
-            }
-            if (MainCaliber.Length != 0)
-            {
-                sb.Append("MainCaliber: " + MainCaliber + "\n");
-            }
-            if (Armor.Length != 0)
-            {
-                sb.Append("Armor: " + Armor + "\n");
-            }
-            if (Weight.Length != 0)
-            {
-                sb.Append("Weight: " + Weight + "\n");
-            }
+            sb.Append("Name: " + Name + "\n");
+            sb.Append("Coutnry: " + Country + "\n");
+            sb.Append("YearOfIssue: " + YearOfIssue + "\n");
+            sb.Append("MainCaliber: " + MainCaliber + "\n");
+            sb.Append("Armor: " + Armor + "\n");
+            sb.Append("Weight: " + Weight + "\n");
             return sb.ToString();
         }
 
@@ -53,50 +35,62 @@ namespace XMLToHTML
         {
             StringBuilder sb = new StringBuilder();
             bool isFirst = true;
+            sb.Append("Tank[");
             if (Name.Length != 0)
             {
-                sb.Append("tank[@Name='" + Name  + "']");
+                sb.Append("@Name='" + Name + "'");
                 isFirst = false;
             }
             if (Country.Length != 0)
             {
                 if (!isFirst)
                 {
-                    sb.Append(" | ");
+                    sb.Append(" and ");
                 }
-                sb.Append("tank[@Country='" + Country + "']");
+                sb.Append("@Country='" + Country + "'");
+                isFirst = false;
             }
             if (YearOfIssue.Length != 0)
             {
                 if (!isFirst)
                 {
-                    sb.Append(" | ");
+                    sb.Append(" and ");
                 }
-                sb.Append("tank[@YearOfIssue='" + YearOfIssue + "']");
+                sb.Append("@YearOfIssue='" + YearOfIssue + "'");
+                isFirst = false;
             }
             if (MainCaliber.Length != 0)
             {
                 if (!isFirst)
                 {
-                    sb.Append(" | ");
+                    sb.Append(" and ");
                 }
-                sb.Append("tank[@MainCaliber='" + MainCaliber + "']");
+                sb.Append("@MainCaliber='" + MainCaliber + "'");
+                isFirst = false;
             }
             if (Armor.Length != 0)
             {
                 if (!isFirst)
                 {
-                    sb.Append(" | ");
+                    sb.Append(" and ");
                 }
-                sb.Append("tank[@Armor='" + Armor + "']");
+                sb.Append("@Armor='" + Armor + "'");
+                isFirst = false;
             }
             if (Weight.Length != 0)
             {
                 if (!isFirst)
                 {
-                    sb.Append(" | ");
+                    sb.Append(" and ");
                 }
-                sb.Append("tank[@Weight='" + Weight + "']");
+                sb.Append("@Weight='" + Weight + "'");
+                isFirst = false;
+            }
+            sb.Append("]");
+            if (isFirst)
+            {
+                sb.Clear();
+                sb.Append("Tank");
             }
             return sb.ToString();
         }

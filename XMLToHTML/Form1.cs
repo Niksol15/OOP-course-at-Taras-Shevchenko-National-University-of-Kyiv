@@ -58,12 +58,20 @@ public partial class Form1 : Form
 
         private void LoadButton_Click(object sender, EventArgs e)
         {
-            if(OpenFileDialog.ShowDialog() == DialogResult.OK)
+            try
             {
-                XMLFilePath = OpenFileDialog.FileName;
-                Dictionary<string, HashSet<string>> atributes = XMLLoader.LoadXML(XMLFilePath);
-                SetComboBoxValues(atributes);
-            }
+                if (OpenFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    XMLFilePath = OpenFileDialog.FileName;
+                    Dictionary<string, HashSet<string>> atributes = XMLLoader.LoadXML(XMLFilePath);
+                    SetComboBoxValues(atributes);
+                }
+            } 
+            catch (Exception)
+            {
+                XMLFilePath = null;
+                MessageBox.Show("Something wrong with file, try again");
+            }            
         }
 
         private void SetComboBoxValues(Dictionary<string, HashSet<string>> dictionary)
@@ -139,23 +147,42 @@ public partial class Form1 : Form
         }
         private void SearchButton_Click(object sender, EventArgs e)
         {
-            MainTextBox.Text = CreateTargetTank().ToXPath();
-            /*
-            if (XMLFilePath != null)
+            try
             {
-                Tank target = CreateTargetTank();
-                List<Tank> tanks = searcher.Search(target, XMLFilePath);
-                foreach (Tank tank in tanks)
+                if (XMLFilePath != null)
                 {
-                    MainTextBox.Text += tank.ToString() + "\n";
+                    Tank target = CreateTargetTank();
+                    List<Tank> tanks = searcher.Search(target, XMLFilePath);
+                    MainTextBox.Text = "";
+                    foreach (Tank tank in tanks)
+                    {
+                        MainTextBox.Text += tank.ToString() + "\n";
+                    }
                 }
+                else
+                {
+                    MessageBox.Show("Load the file first");
+                }                
             }
-            */
+            catch (Exception)
+            {
+                XMLFilePath = null;
+                MessageBox.Show("Something wrong with file, try again");
+            }                
         }
 
         private void СlearBotton_Click(object sender, EventArgs e)
         {
             MainTextBox.Text = "";
+        }
+
+        private void SaveButton_Click(object sender, EventArgs e)
+        {
+            if (SaveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string HTMLFilePath = SaveFileDialog.FileName;
+                HtmlSaver.SaveHTML(XMLFilePath, HTMLFilePath);           
+            }
         }
     }
 }

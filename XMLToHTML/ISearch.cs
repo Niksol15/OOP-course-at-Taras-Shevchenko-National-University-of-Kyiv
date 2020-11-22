@@ -6,6 +6,6 @@ namespace XMLToHTML
 {
     interface ISearch
     {
-        List<Tank> Search(Tank tank, string filePath);
+        List<Tank> Search(Tank targetTank, string filePath);
     }
 }

@@ -13,18 +13,16 @@ namespace XMLToHTML
             XmlDocument xmlDoc = new XmlDocument();
             xmlDoc.Load(filePath);
             XmlElement xmlRoot = xmlDoc.DocumentElement;
+            XmlNodeList searched = xmlRoot.SelectNodes(targrtTank.ToXPath());
             List<Tank> res = new List<Tank>();
-            foreach (XmlNode xmlNode in xmlRoot)
+            foreach (XmlNode node in searched)
             {
-                Tank currTank = new Tank();
-                foreach (XmlAttribute atr in xmlNode.Attributes)
+                Tank tank = new Tank();
+                foreach(XmlAttribute atr in node.Attributes)
                 {
-                    currTank.SetProperty(atr.Name, atr.Value);
+                    tank.SetProperty(atr.Name, atr.Value);
                 }
-                if (targrtTank.Equals(currTank))
-                {
-                    res.Add(currTank);
-                }
+                res.Add(tank);
             }
             return res;
         }
