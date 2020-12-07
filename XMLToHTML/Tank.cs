@@ -4,7 +4,7 @@ using System.Text;
 
 namespace XMLToHTML
 {
-    class Tank
+    public class Tank
     {
         private string _name = "";
         private string _country = "";

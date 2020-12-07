@@ -262,6 +262,9 @@ namespace XMLToHTML
             // 
             // MainTextBox
             // 
+            this.MainTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.MainTextBox.Location = new System.Drawing.Point(353, 35);
             this.MainTextBox.Name = "MainTextBox";
             this.MainTextBox.Size = new System.Drawing.Size(435, 396);
@@ -298,7 +301,7 @@ namespace XMLToHTML
             this.Controls.Add(this.CountryCheckBox);
             this.Controls.Add(this.NameCheckBox);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Lab2";
             this.ResumeLayout(false);
             this.PerformLayout();
 

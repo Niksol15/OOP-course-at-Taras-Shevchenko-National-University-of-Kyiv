@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "KKUX3zN6fuAjUtU5o+rffW5EeRmurkIyw6kWhcYPIVvo+sA6rnrTLeA7lbFB39OhAjWekBL4lIXJbA6y4q6sUg==",
+  "dgSpecHash": "LVXMDIj+o+7zlJTEdNsGEkwW0h5Cjt/0iRToB9kG//GDfv0GPkbQnHHNcoNMcbK0JO835qdGeBu36talpjrayw==",
   "success": true,
   "projectFilePath": "D:\\Project\\OOP\\OOP-course-at-Taras-Shevchenko-National-University-of-Kyiv\\XMLToHTML\\XMLToHTML.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\solon\\.nuget\\packages\\mstest.testframework\\2.1.1\\mstest.testframework.2.1.1.nupkg.sha512"
+  ],
   "logs": []
 }

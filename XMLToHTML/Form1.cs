@@ -178,10 +178,22 @@ public partial class Form1 : Form
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            if (SaveFileDialog.ShowDialog() == DialogResult.OK)
+            if (XMLFilePath == null)
             {
-                string HTMLFilePath = SaveFileDialog.FileName;
-                HtmlSaver.SaveHTML(XMLFilePath, HTMLFilePath);           
+                MessageBox.Show("Load the file first");
+                return;
+            }
+            try
+            {
+                if (SaveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string HTMLFilePath = SaveFileDialog.FileName;
+                    HtmlSaver.SaveHTML(XMLFilePath, HTMLFilePath);
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Something wrong with file, try again");
             }
         }
     }

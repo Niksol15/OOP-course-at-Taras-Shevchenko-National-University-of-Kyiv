@@ -5,7 +5,7 @@ using System.Xml;
 
 namespace XMLToHTML
 {
-    class SAXStrategy : ISearch
+    public class SAXStrategy : ISearch
     {
         public List<Tank> Search(Tank targetTank, string filePath)
         {

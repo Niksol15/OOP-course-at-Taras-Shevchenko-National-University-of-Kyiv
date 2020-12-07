@@ -6,7 +6,7 @@ using System.Xml;
 
 namespace XMLToHTML
 {
-    class DOMStrategy : ISearch
+    public class DOMStrategy : ISearch
     {
         public List<Tank> Search(Tank targrtTank, string filePath)
         {
